@@ -1,0 +1,167 @@
+<div class="card-container" [ngClass]="mode">
+  <div
+    class="nameimageinfo"
+    [ngClass]="{
+      blue: pokemon.energy_type == 'Water',
+      yellow: pokemon.energy_type == 'Lightning',
+      redorange: pokemon.energy_type == 'Fire',
+      green: pokemon.energy_type == 'Grass',
+      purple: pokemon.energy_type == 'Psychic',
+      brown: pokemon.energy_type == 'Fighting',
+      unknown: !pokemon.energy_type
+    }"
+  >
+    <!-- Name and basic stats -->
+    <table class="nameheaders">
+      <tr>
+        <td class="basic" colspan="3">Basic Pokémon</td>
+      </tr>
+      <tr>
+        <td class="nameofanimal">{{ pokemon.name || "Name" }}</td>
+        <td class="hp">{{ pokemon.hp || "xx" }} HP</td>
+        <td class="typesign">
+          <img
+            class="energy-type"
+            src="../../../assets/image/types/{{
+              pokemon.energy_type || 'Unknown'
+            }}.png"
+            alt=""
+          />
+        </td>
+      </tr>
+    </table>
+    <!-- Image and description -->
+    <img
+      class="main-image"
+      [src]="
+        imagePreview
+          ? imagePreview
+          : '../../../assets/image/loader/poke-card-default.gif'
+      "
+      [alt]="pokemon.name"
+      (load)="isImageLoaded = true"
+      [hidden]="isImageLoaded === false"
+    />
+    <img
+      *ngIf="!isImageLoaded"
+      class="main-image"
+      src="../../../assets/image/loader/poke-loader.gif"
+    />
+    <br />
+    <!-- Border around the animal's information per requirement -->
+    <div class="infoonly">
+      <!-- "interesting fact" -->
+      <p class="description">
+        {{ pokemon.type || "type" }} Pokémon. Length:
+        {{ pokemon.length || "length" }} m, Weight:
+        {{ pokemon.weight || "weight" }} Kg.
+      </p>
+      <!-- Attacks -->
+      <table class="stats" *ngFor="let attack of pokemon.attack_list">
+        <tr class="attack-stat">
+          <td class="energy">
+            <ng-container *ngFor="let cost of attack.cost">
+              <img
+                class="energy-type"
+                src="../../../assets/image/types/{{ cost || 'Unknown' }}.png"
+                alt=""
+              />
+            </ng-container>
+          </td>
+          <td class="attackdesc" [ngClass]="{ 'text-center': !attack.text }">
+            <span class="label"> {{ attack.name || "Attack Name" }}</span>
+            <span class="labeltext">{{ attack.text || "" }}</span>
+          </td>
+          <td class="damage">{{ attack.damage || "" }}</td>
+        </tr>
+      </table>
+      <!-- <table class="stats">
+        <tr>
+          <td class="energy">
+            <img
+              class="energy-type"
+              src="../../../assets/image/types/{{
+                pokemon.energy_type || 'Unknown'
+              }}.png"
+              alt=""
+            />
+          </td>
+          <td class="attackdesc">
+            <span class="label">Withdraw</span>
+            <span class="labeltext"
+              >Flip a coin. If heads, prevent all damage done to Squirtle during
+              your opponent's next turn.
+              <em>(Any other effects of attacks still happen.)</em></span
+            >
+          </td>
+          <td class="damage">10</td>
+        </tr>
+      </table> -->
+      <table class="costs">
+        <tr class="costheaders">
+          <td>weakness</td>
+          <td>resistance</td>
+          <td>retreat cost</td>
+        </tr>
+        <tr class="costicons">
+          <td>
+            <ng-container *ngFor="let weakness of pokemon.weaknesses">
+              <img
+                class="energy-type"
+                src="../../../assets/image/types/{{
+                  weakness || 'Unknown'
+                }}.png"
+                alt=""
+              />
+            </ng-container>
+          </td>
+          <td>
+            <ng-container
+              *ngFor="let res of pokemon.resistance"
+              class="energy-footer"
+            >
+              <img
+                class="energy-type"
+                src="../../../assets/image/types/{{ res || 'Unknown' }}.png"
+                alt="resistance"
+              />
+            </ng-container>
+          </td>
+          <td>
+            <ng-container *ngFor="let retCost of pokemon.retreatCost">
+              <img
+                class="energy-type"
+                src="../../../assets/image/types/{{ retCost || 'Unknown' }}.png"
+                alt="retreat Cost"
+              />
+            </ng-container>
+          </td>
+        </tr>
+      </table>
+      <!-- Bottom Description -->
+      <!-- This is the list for the purposes of following the exercise instructions to have a list :D -->
+      <ul>
+        <!-- "interesting fact" -->
+        <li class="italicize">
+          {{ pokemon.description || "Description" }}
+        </li>
+        <li class="copyrights">
+          <span class="strong">Illus {{ pokemon.artist || "artist" }}</span>
+          <span class="medium"
+            >©1995, 96, 98 Nintendo Creatures, GAMEFREAK ©1999 Wizards</span
+          >
+          <span class="strong"
+            >{{ pokemon.number || "xx/yy" }}
+            <img
+              class="rarity"
+              src="../../../assets/image/rarity/{{
+                pokemon.rarity || 'Common'
+              }}.png"
+              alt=""
+            />
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

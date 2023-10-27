@@ -1,0 +1,26 @@
+.spacer {
+    flex: 1 1 auto;
+}
+.wallet {
+    padding-right: 0.5rem;
+}
+.logo {
+    max-height: 68%;
+    cursor: pointer;
+}
+.only-desktop {
+    padding-left: 1rem;
+}
+@media (min-width: 769px) {
+    .only-mobile {
+        display: none;
+    }
+}
+
+//when used smartphone
+@media (max-width: 769px) {
+    .only-desktop,
+    .walletButton {
+        display: none;
+    }
+}
