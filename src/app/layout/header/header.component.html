@@ -4,7 +4,7 @@
       <mat-icon>menu</mat-icon>
     </button>
     <img
-      src="../../../assets/image/pokecardNft.png"
+      src="../../../assets/image/logoNFT.png"
       alt="logo"
       class="logo"
       [routerLink]="['']"
@@ -23,7 +23,7 @@
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
         mat-button
-        >All Cards</a
+        >Toutes les cartes</a
       >
 
       <a
@@ -31,14 +31,14 @@
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
         mat-button
-        >Create Card NFT</a
+        >Créer une carte NFT</a
       >
       <a
         routerLink="/my-profile"
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
         mat-button
-        >My profile</a
+        >Mon profil</a
       >
     </div>
     <span class="spacer"></span>
@@ -61,7 +61,7 @@
           ? (this.wallet.walletAddress | slice : 0 : 3) +
             "..." +
             (this.wallet.walletAddress | slice : -4)
-          : "Connect wallet"
+          : "Connecter le portefeuille"
       }}
     </button>
   </mat-toolbar-row>

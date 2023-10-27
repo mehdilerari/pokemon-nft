@@ -13,7 +13,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void { }
 
   connectWallet() {
-    if (!this.wallet.walletAddress) this.wallet.connect();
+    //if (!this.wallet.walletAddress) this.wallet.connect();
+    this.wallet.connect();
   }
   menuIconClicked() {
     this.menuClickEvent.emit();

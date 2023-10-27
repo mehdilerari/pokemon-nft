@@ -6,9 +6,9 @@
       hideToggle
     >
       <mat-expansion-panel-header>
-        <mat-panel-title> Main Informations </mat-panel-title>
+        <mat-panel-title> Informations principales</mat-panel-title>
         <mat-panel-description>
-          Type the Pokecard main informations
+          Tapez les informations principales de la carte Pokémon
           <mat-icon>account_circle</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
@@ -16,7 +16,7 @@
       <form id="card-form">
         <div class="input-group">
           <mat-form-field appearance="outline">
-            <mat-label>Name</mat-label>
+            <mat-label>Nom</mat-label>
             <input
               [(ngModel)]="customCard.name"
               name="name"
@@ -34,22 +34,22 @@
               matInput
               placeholder="50"
             />
-            <mat-icon matSuffix>health_and_safety</mat-icon>
+            <mat-icon matSuffix>Santé</mat-icon>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Length</mat-label>
+            <mat-label>Longueur</mat-label>
             <input
               [(ngModel)]="customCard.length"
               name="length"
               matInput
               placeholder="EX. 2.65"
             />
-            <mat-icon matSuffix>straighten</mat-icon>
+            <mat-icon matSuffix>Force</mat-icon>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Weight</mat-label>
+            <mat-label>Poids</mat-label>
             <input
               [(ngModel)]="customCard.weight"
               name="weight"
@@ -92,15 +92,15 @@
           </div>
 
           <mat-card class="rarity">
-            Rarity:
+            Rareté:
             <mat-button-toggle-group
               [(ngModel)]="customCard.rarity"
               name="rarity"
               aria-label="Rarity"
             >
-              <mat-button-toggle value="Common">Common</mat-button-toggle>
-              <mat-button-toggle value="Uncommon">Uncommon</mat-button-toggle>
-              <mat-button-toggle value="Rare">Rare</mat-button-toggle>
+              <mat-button-toggle value="Common">Commun</mat-button-toggle>
+              <mat-button-toggle value="Uncommon">Rare</mat-button-toggle>
+              <mat-button-toggle value="Rare">Trés rare</mat-button-toggle>
             </mat-button-toggle-group>
           </mat-card>
           <app-energy-chooser
@@ -121,7 +121,7 @@
       hideToggle
     >
       <mat-expansion-panel-header>
-        <mat-panel-title> Attack list </mat-panel-title>
+        <mat-panel-title> Liste d'attaques </mat-panel-title>
         <mat-panel-description>
           Type the attacks details
           <mat-icon>sports_martial_arts</mat-icon>
