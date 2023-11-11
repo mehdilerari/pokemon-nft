@@ -34,3 +34,5 @@ Ensure that you switch to the Sepolia network, as we are using it for this proje
 ## Creating NFTs
 
 That's it! You should now be able to create your own NFTs in this environment. Enjoy your NFT creation journey!
+
+<img src="https://ibb.co/YymBVf9" alt="pokemon-go-bot" border="0">
