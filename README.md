@@ -2,6 +2,8 @@
 
 This repository contains the source code for the Pokémon NFT project, allowing you to create your own NFTs using Ethereum and MetaMask.
 
+![image info](./docs/pk.png)
+
 ## Installation and Setup
 
 To get started, follow these steps:
